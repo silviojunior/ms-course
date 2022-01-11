@@ -50,7 +50,6 @@
                     <mainClass>com.devsuperior.hrconfigserver.HrConfigServerApplication</mainClass>
                 </configuration>
 
-
                 <executions>
                     <execution>
                         <goals>
