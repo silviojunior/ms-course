@@ -28,11 +28,6 @@ public class WorkerResource {
     @Autowired
     private Environment env;
 
-/*
-    @Value("${test.config}")
-    private String testConfig;
-*/
-
     @GetMapping
     public ResponseEntity<List<Worker>> findAll(){
         List<Worker> list = workerRepository.findAll();
@@ -42,24 +37,8 @@ public class WorkerResource {
     @GetMapping(value="/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id){
 
-        /*
-        try {
-            Thread.sleep(3000);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        */
-        logger.info("PORT = " + env.getProperty("local.server.port"));
-
         Worker worker = workerRepository.findById(id).get();
         return ResponseEntity.ok(worker);
-    }
-
-    @GetMapping(value="/configs")
-    public ResponseEntity<Void> testConfig(){
-
-       // logger.info("CONFIG = " + testConfig);
-        return ResponseEntity.noContent().build();
     }
 
 }
